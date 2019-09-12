@@ -48,7 +48,7 @@ public class BankingServiceImpl implements IBankingService {
 	@Override
 	public boolean custEmailValidation(String email) throws BankJpaException {
 		boolean resultEmailFlag= false;
-		String emailRegex="^[a-z]{3,}@[a-z]{3,}.com$";
+		String emailRegex="^[a-z0-9]{3,}@[a-z]{3,}.com$";
 		if(!Pattern.matches(emailRegex, email)){
 			throw new BankJpaException("Email should be in small case end with '.com' ");
 		}

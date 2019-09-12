@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+	xmlns:tx="http://www.springframework.org/schema/tx"
+
+
+
+	xsi:schemaLocation="
+
+        http://www.springframework.org/schema/beans    
+
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+
+        http://www.springframework.org/schema/context
+
+        http://www.springframework.org/schema/context/spring-context.xsd
+
+        http://www.springframework.org/schema/mvc
+
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+
+        http://www.springframework.org/schema/tx
+
+                                http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+
+	default-init-method="startUp" default-destroy-method="myDestroy">
+
+
+	<!-- <bean id="triangle" class="com.cg.TriangleForPoint"> -->
+	<!-- <property name="type" value="Equilateral"/> setter based injection 
+		<constructor-arg value="Scalence"/> <property name ="height" value= "20" 
+		type="int"/> <property name="type" value="Isoceles" type="java.lang.String"/> 
+		<constructor-arg value="68" index='1'/> <constructor-arg value="Scalence" 
+		index='0'/> -->
+	<!-- <bean id="triangle3" class="com.cg.TriangleList">
+		<property name="pointA" ref="zeroPoint"/>
+		 <property name="pointB" ref="point2"/> 
+		 <property name="pointC" ref="point3"/>
+		<property name="points">
+			<list>
+				<ref bean="zeroPoint" />
+				<ref bean="point2" />
+				<ref bean="point3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="zeroPoint" class="com.cg.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="point2" class="com.cg.Point">
+		<property name="x" value="${point2.x}" />
+		<property name="y" value="${point2.y}" />
+	</bean>
+	<bean id="point3" class="com.cg.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="center" class="com.cg.Point">
+		<property name="x" value="${center.x}" />
+		<property name="y" value="${center.y}" />
+	</bean>
+	<bean id="circle" class="com.cg.Circle" autowire="byName" init-method="startUp" 
+		destroy-method="myDestroy"> if we have more than one type i.e, points it 
+		will raise exception <property name="center" ref="point3"/> </bean>
+
+	using default globally declared init method
+
+	<bean id="circle" class="com.cg.Circle" autowire="byName"
+		scope="prototype">  if we have more than one type i.e, points it will raise exception
+		<property name="center" ref="point3" />
+	</bean>
+	<bean id="triangle" class="com.cg.TriangleForPoint">
+	<property name="pointA" ref="zeroPoint" />
+	<property name="pointB" ref="Point2" />
+	<property name="pointC" ref="center" />
+</bean>
+	<bean class="com.cg.spring.DisplayNameBeanPostProcessor" />
+	<bean class="com.cg.MyBeanFactoryPP" />
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="pointConfig.properties"></property>
+		<property name="locations">
+			<list>
+				<value>pointConfig.properties</value>
+				<value>props.properties</value>
+			</list>
+		</property>
+
+	</bean> -->
+
+	<bean id="employee" class="com.cg.Employee">
+		<property name="dob" value="getDate()" />
+	</bean>
+	<bean id="customEditorConfigurer"
+		class="org.springframework.beans.factory.config.CustomEditorConfigurer">   <!-- conversion part done by this class...beanfactoryPostProcessor -->
+		<property name="customEditors">
+			<map>
+				<entry key="java.sql.Date" value="com.cg.SqlDateEditor"></entry>
+
+			</map>
+		</property>
+	</bean>
+
+
+</beans>

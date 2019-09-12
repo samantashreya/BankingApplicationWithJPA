@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NotFound;
 @Entity
 @Table(name = "CustomerJpa")
 public class Customer {
